@@ -1,4 +1,7 @@
-  /*
+
+-- Answer audit-focused questions, based on table "med_audit"
+
+/*
 1. What med did we spend the most money on in total?
   -- Solution a: returns med with highest spent - but without possible ties
 */

@@ -1,8 +1,8 @@
-/*
-Create an additional table for the Looker Studio Dashboard (in health_tail_consumer)
-Purpose: inventory analysis >>> monthly medication inventory table with inflows, outflows, net flows and cumulative running totals
-Restriction: inventory calculation starts at 0 in Jan 2024, because no opening balances are available
-*/
+
+-- Create table "med_inventory_all" (in health_tail_consumer)
+-- Additional table for Looker Studio Dashboard
+-- Purpose: inventory analysis >>> monthly medication inventory table with inflows, outflows, net flows and cumulative running totals
+-- Restriction: inventory calculation starts at 0 in Jan 2024, because no opening balances are available
 
 CREATE OR REPLACE TABLE `healthtail-project-473107.health_tail_consumer.med_inventory_all` AS
 WITH

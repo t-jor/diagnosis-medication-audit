@@ -1,7 +1,8 @@
-/*
-Create an additional table for the Looker Studio Dashboard (in health_tail_consumer)
-Purpose: show diagnosis share per month
-*/
+
+-- Create table "healthtail_diag_share" (in health_tail_consumer)
+-- Additional table for Looker Studio Dashboard
+-- Purpose: show diagnosis share per month
+
 CREATE OR REPLACE TABLE
   `healthtail-project-473107.health_tail_consumer.healthtail_diag_share` AS
 WITH monthly AS (

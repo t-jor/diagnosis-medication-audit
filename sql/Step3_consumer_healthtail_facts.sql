@@ -1,6 +1,7 @@
-  /*
-Join visits-table with cleaned registration info as base for the Looker Studio Dashboard >>> Create table "healthtail_facts" (in health_tail_consumer)
-*/
+
+-- Create table "healthtail_facts" (in health_tail_consumer)
+-- Purpose: Join visits-table with cleaned registration info as base for the Looker Studio Dashboard 
+
 CREATE OR REPLACE TABLE
   `healthtail-project-473107.health_tail_consumer.healthtail_facts` AS
 SELECT
