@@ -100,7 +100,7 @@ These questions are **part of the technical SQL assignment** and are **not visua
 
 ---
 
-## 6. Stakeholder Questions (Q1–Q8)
+## 6. Stakeholder Business Questions (SBQs)
 
 These business questions form the core of the dashboard:
 
@@ -152,4 +152,4 @@ Dashboard pages must clearly address these questions.
 This assignment brief was compiled for documentation purposes by:  
 
 **Thomas Jortzig**  
-HealthTail-Project (09/2025)5
+HealthTail-Project (09/2025)

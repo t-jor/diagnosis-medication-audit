@@ -1,4 +1,4 @@
-# Findings, Medication Audit, and Stakeholder Business Q&A – HealthTail BI Project
+# Findings: Medication Audit, and Stakeholder Business Q&A – HealthTail BI Project
 
 This document summarizes the analytical findings derived from the BigQuery models and the Looker Studio dashboard.  
 It answers the four Medication Audit Questions (MAQs) as well as the eight Stakeholder Business Questions (SBQs) and outlines key insights.
@@ -171,7 +171,7 @@ The dashboard uses several consumer-layer tables from BigQuery:
 
 ---
 
-## 5.. Additional Insights
+## 5. Additional Insights
 
 - Strong overstocking for some medications (e.g., **Vetmedin**) suggests procurement optimization potential.  
 - Senior pets represent a high-cost segment suitable for preventive and chronic-care programs.  
