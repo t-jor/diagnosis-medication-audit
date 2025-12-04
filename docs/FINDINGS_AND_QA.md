@@ -1,13 +1,81 @@
-# Findings and Stakeholder Q&A – HealthTail BI Project
+# Findings, Medication Audit, and Stakeholder Business Q&A – HealthTail BI Project
 
 This document summarizes the analytical findings derived from the BigQuery models and the Looker Studio dashboard.  
-It answers the eight stakeholder questions and outlines key insights.
+It answers the four Medication Audit Questions (MAQs) as well as the eight Stakeholder Business Questions (SBQs) and outlines key insights.
 
 ---
 
-## 1. Stakeholder Questions – Key Findings
+## 1. Medication Audit Questions (MAQs) – Findings
 
-### Q1 — What are the most common diagnoses overall?
+The medication audit is based on the `med_audit` consumer table.  
+The following findings summarize the SQL results for MAQ1–MAQ4.
+
+---
+
+### **MAQ1 – Which medication generated the highest total spending?**
+
+We sum all invoice-based inflows (i.e., medication purchased).
+
+**SQL Result:**
+
+| Medication | Total Spent |
+|-----------|--------------|
+| **Vetmedin (Pimobendan)** | **1,035,780.00** |
+
+**Interpretation:**  
+Vetmedin represents the largest procurement cost driver for the clinic.  
+High inflow costs may indicate high usage, high pack prices, or potential overstocking.
+
+---
+
+### **MAQ2 – Which medication had the highest monthly spending on treatments, and in which month?**
+
+This evaluates spending from the *visit* side (stock_out).
+
+**SQL Result:**
+
+| Medication | Month | Total Spent |
+|------------|--------|--------------|
+| **Palladia (Toceranib Phosphate)** | **2024-11** | **50,000.00** |
+
+**Interpretation:**  
+Palladia shows the highest monthly spending among all medications, especially in November 2024.  
+Whether this is due to high usage volume, high unit price, or a few intensive treatments cannot be concluded solely from MAQ2.
+
+---
+
+### **MAQ3 – In which month was the highest volume of medication (packs) consumed?**
+
+This evaluates the total number of packs used in treatments.
+
+**SQL Result:**
+
+| Month | Total Packs Consumed |
+|-------|-----------------------|
+| **2024-12** | **3,861.62** |
+
+**Interpretation:**  
+December 2024 shows exceptionally high treatment volume.  
+Could indicate seasonality, special events, or data anomalies.
+
+---
+
+### **MAQ4 – For the medication with the highest total revenue (from treatments), what was the average number of packs used per month?**
+
+**SQL Result:**
+
+| Medication | Total Revenue | Avg. Packs / Month |
+|------------|----------------|---------------------|
+| **Palladia (Toceranib Phosphate)** | **630,500.00** | **52.54** |
+
+**Interpretation:**  
+Palladia, again the top revenue generator, is used consistently across months with moderate average pack consumption.
+
+---
+
+## 2. Stakeholder Business Questions (SBQs) – Key Findings
+
+### SBQ1 — What are the most common diagnoses overall?
 
 - The top three diagnoses account for **17%** of all treatments.  
 - **HCM** is the most frequent diagnosis overall, followed by Hip Dysplasia and Arthritis.  
@@ -15,7 +83,7 @@ It answers the eight stakeholder questions and outlines key insights.
 
 ---
 
-### Q2 — How do diagnoses break down by pet type?
+### SBQ2 — How do diagnoses break down by pet type?
 
 - **HCM** occurs exclusively in **cats**.  
 - **Hip Dysplasia**: **77% dogs**, **23% cats**.  
@@ -24,7 +92,7 @@ It answers the eight stakeholder questions and outlines key insights.
 
 ---
 
-### Q3 — Which diseases are most prevalent among specific breeds?
+### SBQ3 — Which diseases are most prevalent among specific breeds?
 
 Breed patterns differ meaningfully within each species.  
 Examples visible in the dashboard:
@@ -37,7 +105,7 @@ These examples illustrate that the dashboard allows diagnosis-by-breed explorati
 
 ---
 
-### Q4 — Which diseases incur the highest spending?
+### SBQ4 — Which diseases incur the highest spending?
 
 - **Cancer** shows the highest total spending.  
 - Followed by **HCM** and **Arthritis**.  
@@ -45,7 +113,7 @@ These examples illustrate that the dashboard allows diagnosis-by-breed explorati
 
 ---
 
-### Q5 — Are certain pet types more expensive to treat?
+### SBQ5 — Are certain pet types more expensive to treat?
 
 - **Dogs** show the highest medication cost (total and per case).  
 - Followed by **cats**, then **hamsters**.  
@@ -53,7 +121,7 @@ These examples illustrate that the dashboard allows diagnosis-by-breed explorati
 
 ---
 
-### Q6 — How does age influence prevalence and cost?
+### SBQ6 — How does age influence prevalence and cost?
 
 - **Senior animals (8+ years)** account for the highest total medication cost due to more cases.  
 - **Puppies/Kittens (0–1)** have fewer treatments and therefore low total cost.  
@@ -61,7 +129,7 @@ These examples illustrate that the dashboard allows diagnosis-by-breed explorati
 
 ---
 
-### Q7 — How does medication spending change over time?
+### SBQ7 — How does medication spending change over time?
 
 - **Total cost peaks at the end of 2024**, driven by a high number of treatments.  
 - **Cost per case** remains more stable.  
@@ -69,7 +137,7 @@ These examples illustrate that the dashboard allows diagnosis-by-breed explorati
 
 ---
 
-### Q8 — Are certain diagnoses increasing over time?
+### SBQ8 — Are certain diagnoses increasing over time?
 
 - Diagnosis frequency peaks end of 2024 due to overall treatment volume.  
 - **Diagnosis share (% of total)** is more stable over time.  
@@ -78,7 +146,7 @@ These examples illustrate that the dashboard allows diagnosis-by-breed explorati
 
 ---
 
-## 2. Dashboard Page Coverage
+## 3. Dashboard Page Coverage
 
 ```text
 | Dashboard Page             | Addresses Questions          |
@@ -90,7 +158,7 @@ These examples illustrate that the dashboard allows diagnosis-by-breed explorati
 
 ---
 
-## 3. Data Sources Used (Short Summary)
+## 4. Data Sources Used (Short Summary)
 
 The dashboard uses several consumer-layer tables from BigQuery:
 
@@ -103,7 +171,7 @@ The dashboard uses several consumer-layer tables from BigQuery:
 
 ---
 
-## 4. Additional Insights
+## 5.. Additional Insights
 
 - Strong overstocking for some medications (e.g., **Vetmedin**) suggests procurement optimization potential.  
 - Senior pets represent a high-cost segment suitable for preventive and chronic-care programs.  
@@ -112,7 +180,7 @@ The dashboard uses several consumer-layer tables from BigQuery:
 
 ---
 
-## 5. Author
+## 6. Author
 
 **Thomas Jortzig**  
-HealthTail-Project - September 2025
+HealthTail-Project (09/2025)

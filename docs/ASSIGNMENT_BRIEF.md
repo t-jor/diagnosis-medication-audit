@@ -52,57 +52,72 @@ All files contain **synthetic/fake data** and may include inconsistencies or mis
 
 ## 4. Tasks & Deliverables
 
-The assignment required the following deliverables:
+The assignment requires building a complete end-to-end BI pipeline aligned with the SQL development steps.  
+It consists of data cleaning, medication audit, consumer table modeling, dashboard creation, and a final presentation.
 
-### **1) SQL File – Data Cleaning & Aggregation**
+### **1) Data Cleaning (SQL Step 1)**
 
-- Clean the registration dataset  
-- Combine invoice and visit data into a monthly medication audit  
-- Output aggregated tables suitable for analysis  
+- Clean and standardize the registration dataset  
+- Fix inconsistencies (casing, missing values, formatting issues)  
+- Produce a cleaned table used as the foundation for further modeling  
 
-### **2) SQL File – Research Questions / Insights**
+### **2) Data Aggregation & Medication Audit (SQL Step 2a & 2b – MAQs)**
 
-Provide SQL queries answering key business questions, including:
+- Combine the visits and invoices datasets into a consolidated monthly medication audit (`med_audit`)
+- Calculate medication inflow, outflow, and net stock movement  
+- Answer the four **Medication Audit Questions (MAQs)** that evaluate medication usage and inventory patterns  
 
-- Cost drivers  
-- Medication usage patterns  
-- Highest spent medication  
-- Month with highest usage  
+### **3) Consumer Tables for Dashboarding (SQL Step 3, 3a, 3b, 3c – SBQs)**
 
-### **3) Looker Studio Dashboard**
+- Build additional analytics-ready consumer tables for diagnoses, costs, and inventory flows  
+- These tables serve as the basis for answering the eight **Stakeholder Business Questions (SBQs)**  
+- Includes diagnosis frequency, cost drivers, pet-type comparisons, age patterns, and trend analyses  
 
-A public dashboard that:
+### **4) Looker Studio Dashboard**
 
-- Directly connects to BigQuery  
-- Contains **at least 5 stakeholder questions** visualized  
-- Uses filters, time controls, and interactive elements  
-- Consists of max. **2 pages** (guideline; more allowed)  
+- Create a multi-page dashboard
+- Visualize all SBQs with interactivity, filters, and time controls  
+- Connect directly to BigQuery consumer tables  
 
-### **4) Final Presentation**
+### **5) Final Presentation**
 
-- Walk through methodology, analysis, and dashboard  
-- Highlight insights and business implications  
+- Walk through methodology, SQL logic, and dashboard insights  
+- Communicate findings and business implications to stakeholders  
 
 ---
 
-## 5. Stakeholder Questions (Q1–Q8)
+## 5. Medication Audit Questions (MAQs)
+
+These questions are answered entirely through SQL in the `med_audit` table.  
+They represent the core analytical tasks of the medication audit.
+
+1. **MAQ1 – What is the total medication inflow per month?**  
+2. **MAQ2 – What is the total medication outflow per month?**  
+3. **MAQ3 – Which medications show the largest imbalance between inflow and outflow?**  
+4. **MAQ4 – What is the monthly net change in medication stock?**  
+
+These questions are **part of the technical SQL assignment** and are **not visualized in the dashboard**.
+
+---
+
+## 6. Stakeholder Questions (Q1–Q8)
 
 These business questions form the core of the dashboard:
 
-1. **Which diagnoses are most common overall?**  
-2. **How do diagnoses break down by pet type?**  
-3. **Which diseases are most prevalent among specific breeds?**  
-4. **Which diseases generate the highest treatment cost?**  
-5. **Which pet types are more susceptible or more expensive to treat?**  
-6. **How does age influence disease prevalence and cost?**  
-7. **How does medication spending change over time?**  
-8. **Are certain diagnoses increasing over time?**  
+1. **SBQ1 - Which diagnoses are most common overall?**  
+2. **SBQ2 - How do diagnoses break down by pet type?**  
+3. **SBQ3 - Which diseases are most prevalent among specific breeds?**  
+4. **SBQ4 - Which diseases generate the highest treatment cost?**  
+5. **SBQ5 - Which pet types are more susceptible or more expensive to treat?**  
+6. **SBQ6 - How does age influence disease prevalence and cost?**  
+7. **SBQ7 - How does medication spending change over time?**  
+8. **SBQ8 - Are certain diagnoses increasing over time?**  
 
 Dashboard pages must clearly address these questions.
 
 ---
 
-## 6. Requirements & Constraints
+## 7. Requirements & Constraints
 
 - Use **BigQuery** for data storage, cleaning, aggregation, and analysis  
 - Use **Looker Studio** for dashboard visualization  
@@ -114,7 +129,7 @@ Dashboard pages must clearly address these questions.
 
 ---
 
-## 7. Evaluation Criteria
+## 8. Evaluation Criteria
 
 - Data cleaning quality  
 - Correctness and clarity of SQL queries  
@@ -125,16 +140,16 @@ Dashboard pages must clearly address these questions.
 
 ---
 
-## 8. Notes
+## 9. Notes
 
 - The dataset is fictional, designed for analytics learning.  
 - Students were encouraged to build additional data models (diagnosis share, inventory flows, etc.) if it improves clarity or dashboard quality.  
 
 ---
 
-## 9. Author of Summary
+## 10. Author of Summary
 
 This assignment brief was compiled for documentation purposes by:  
 
 **Thomas Jortzig**  
-HealthTail-Project - September 2025
+HealthTail-Project (09/2025)5

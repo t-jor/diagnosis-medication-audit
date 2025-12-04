@@ -181,7 +181,7 @@ Tables will materialize automatically into their datasets.
 2. Build visualizations using the appropriate tables  
 3. Add blends where required  
 4. Publish the report  
-5. Store the link in `/dashboard/looker_studio_link.txt`
+5. Store the link in [dashboard/looker_studio_link.txt](../dashboard/looker_studio_link.txt)
 
 ---
 
@@ -197,4 +197,4 @@ Tables will materialize automatically into their datasets.
 ## 7. Author
 
 **Thomas Jortzig**  
-HealthTail-Project — September 2025
+HealthTail-Project (09/2025)
