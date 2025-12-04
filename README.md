@@ -3,20 +3,25 @@
 ![Project Type](https://img.shields.io/badge/Project-BI%20Case%20Study-6C63FF)
 ![Tech Stack](https://img.shields.io/badge/Tech-BigQuery%20%E2%80%A2%20SQL%20%E2%80%A2%20Looker%20Studio-4B8BBE)
 
-A business-focused BI project for **HealthTail**, a major veterinary hospital, to automate medication auditing, analyze disease trends, and support data-driven decision-making.
-
-This project combines **BigQuery**, **SQL**, and **Looker Studio** to transform raw clinic data into actionable insights.
+A business-focused BI project for **HealthTail**, a major veterinary hospital.  
+This case study automates medication auditing, analyzes disease trends, and delivers a modern analytics dashboard using **BigQuery**, **SQL**, and **Looker Studio**.
 
 ---
 
-## 🚀 Project Goal
+## 🧭 Executive Summary
 
-Provide HealthTail with:
+HealthTail provided three raw datasets (patient records, visits, and medication invoices).  
+The goal was to build an end-to-end BI workflow that:
 
-- A **clean, unified dataset** for diagnoses & medication spend  
-- A **monthly medication audit** (stock in/out, value, usage)  
-- An **interactive analytics dashboard** for diagnoses, cost, trends & inventory  
-- **Business insights** to support procurement, treatment planning & budgeting
+- cleans and standardizes registration and visit data  
+- produces a **monthly medication audit** (stock in/out, usage & value)  
+- creates analysis-ready consumer tables in BigQuery  
+- answers **two question packages**:  
+  - **MAQ1–4** → Medication Audit Questions (SQL results)  
+  - **SBQ1–8** → Stakeholder Business Questions (dashboard-driven)  
+- develops an interactive Looker Studio dashboard for trends, costs, diagnoses & inventory
+
+The result is a streamlined, scalable BI solution that enables HealthTail to make data-driven decisions in procurement, medical planning, and budgeting.
 
 ---
 
@@ -24,77 +29,96 @@ Provide HealthTail with:
 
 HealthTail struggled with:
 
-- Manual, error-prone medication auditing  
-- No clear overview of disease trends & cost drivers  
-- No ability to analyze diagnoses by **pet type, breed, or age**  
-- Limited visibility into **inventory buildup** and stock inefficiencies  
+- manual, error-prone medication auditing  
+- poor visibility of **diagnosis frequency & cost drivers**  
+- no split by **pet type, breed, or age group**  
+- no operational view on **inventory buildup** and capital binding  
 
-This BI solution modernizes their analytics capabilities.
+This BI solution provides the missing analytical foundation.
 
 ---
 
 ## 📊 Dashboard Preview (Looker Studio)
 
+<!-- markdownlint-disable MD033 -->
 ### Diagnosis by Frequency
 
-![Diagnosis by Frequency](/img/dashboard_diagnosis_frequency.png)
+<img src="img/dashboard_diagnosis_frequency.png" alt="Dashboard – Diagnosis by Frequency" width="900" />
 
 ### Diagnosis by Cost
 
-![Diagnosis by Cost](/img/dashboard_diagnosis_cost.png)
+<img src="img/dashboard_diagnosis_cost.png" alt="Dashboard – Diagnosis by Cost" width="900" />
 
-### Stock Movement
+### Stock Movement (In/Out, Cumulative Inventory)
 
-![Stock Movement](/img/dashboard_stock_movement.png)
+<img src="img/dashboard_stock_movement.png" alt="Dashboard – Stock Movement" width="900" />
+<!-- markdownlint-enable MD033 -->
 
 ### 🔗 Live Dashboard
 
-👉 [Open in Looker Studio](https://lookerstudio.google.com/s/oWTydFfl2W4)
+👉 **[Open in Looker Studio](https://lookerstudio.google.com/s/oWTydFfl2W4)**
 
 ---
 
 ## 🔍 Key Insights (Business-Level)
 
-- **Cancer & HCM are the highest-cost diagnoses** (major spend drivers).  
-- **Senior pets** generate a disproportionately high share of treatment cost.  
+- **Cancer & HCM** are the highest-cost diagnoses.  
+- **Senior pets** contribute the largest share of treatment cost.  
 - **Vetmedin (Pimobendan) is massively overstocked** → ~€607k inventory in Dec 2025.  
-- **No strong seasonal patterns detected**; seasonality analysis per diagnosis is a promising follow-up.  
-- **Dog treatments dominate total cost and cost-per-case**, while cats and hamsters have similar case counts but lower cost intensity.
+- **No strong seasonal effects detected**; deeper seasonality analysis is a future opportunity.  
+- **Dogs show the highest cost per case**, while cats and hamsters have similar case volumes but lower cost intensity.
 
 ---
 
-## ❓ Questions Answered
+## ❓ Questions Covered
 
-### 1. Medication Audit – SQL (Step 2)
+HealthTail defined *two* distinct question sets:  
+one operational (SQL audit) and one strategic (dashboard insights).
 
-Using the aggregated table `med_audit`, the project answers four audit-focused questions (via [`Step2b_questions_med_audit.sql`](sql/Step2b_questions_med_audit.sql)):
+### **➤ Medication Audit Questions (MAQ1–4)**
 
-1. Which medication has the **highest total spend** (purchases)?  
-2. Which medication × month combination has the **highest spending on patients**?  
-3. In which month were the **most packs consumed** in the clinic?  
-4. For the **top-revenue medication**, what is the **average monthly usage (packs)**?
+Operational questions answered 100% in SQL using `med_audit`.
 
-### 2. Dashboard Stakeholder Questions (Q1–Q8)
+Topics include:
 
-The Looker Studio dashboard is designed so that its pages allow HealthTail to answer the eight stakeholder questions from the assignment brief (diagnosis frequency, breakdown by pet type/breed, cost drivers, age effects, time trends, etc.).
+- Highest-spend medications  
+- Month with most packs consumed  
+- Medication × month highest spend combinations  
+- Average monthly usage of top medication  
 
-Condensed answers and examples are documented in  
-**➡️ [docs/FINDINGS_AND_QA.md](docs/FINDINGS_AND_QA.md)**.
+---
+
+### **➤ Stakeholder Business Questions (SBQ1–8)**
+
+Answered through the Looker Studio dashboard.
+
+Topics include:
+
+- Most common diagnoses  
+- Cost drivers  
+- Breakdown by species & age  
+- Trends in diagnosis shares  
+- Medication inventory patterns  
+
+---
+
+📄 Full questions → **[docs/ASSIGNMENT_BRIEF.md](docs/ASSIGNMENT_BRIEF.md)**  
+📘 Full answers → **[docs/FINDINGS_AND_QA.md](docs/FINDINGS_AND_QA.md)**
 
 ---
 
 ## 🧭 Project Approach
 
-1. Load client CSVs (patients, visits, invoices) into BigQuery  
-2. Clean and standardize registration data  
-3. Build integrated medication audit `med_audit` (**stock in / stock out**)  
-4. Answer (4) audit-focused questions on `med_audit` with SQL
-5. Create analysis-ready consumer tables  
-6. Build interactive dashboard in Looker Studio
-7. Answer (8) stakeholder questions via dashboard
+1. Load CSVs (patients, visits, invoices) into BigQuery  
+2. Clean patient/owner data → `registration_clean`  
+3. Build **med_audit** (stock in/out consolidation)  
+4. Answer **MAQ1–4** via SQL  
+5. Create consumer marts (`healthtail_facts`, `healthtail_diag_share`, `med_inventory_all`, `med_diagnosis_map`)  
+6. Build Looker Studio dashboard  
+7. Answer **SBQ1–8** using dashboard visualizations
 
-Technical details are documented in
-**➡️ [docs/TECHNICAL_README.md](docs/TECHNICAL_README.md)**
+Full technical workflow →  
+➡️ **[docs/TECHNICAL_README.md](docs/TECHNICAL_README.md)**
 
 ---
 
@@ -103,9 +127,9 @@ Technical details are documented in
 ```text
 /sql                    ← All project SQL files
 /docs
-   ASSIGNMENT_BRIEF.md  ← Summary of original assignment & requirements
+   ASSIGNMENT_BRIEF.md  ← Summary of assignment & two question packages (MAQ + SBQ)
    TECHNICAL_README.md  ← Detailed ETL + modelling documentation
-   FINDINGS_AND_QA.md   ← Answers to stakeholder questions + insights
+   FINDINGS_AND_QA.md   ← Answers to stakeholder questions (MAQ + SBQ)
 /img                    ← Dashboard screenshots
 /dashboard              ← Looker Studio link (looker_studio_link.txt)
 README.md               ← Executive summary (this file)
@@ -113,8 +137,8 @@ README.md               ← Executive summary (this file)
 
 ### Linked Documentation
 
-- Technical ETL & Data Modelling → [docs/TECHNICAL_README.md](docs/TECHNICAL_README.md)  
-- Findings & Stakeholder Q&A → [docs/FINDINGS_AND_QA.md](docs/FINDINGS_AND_QA.md)  
+- Technical ETL & Modelling → [docs/TECHNICAL_README.md](docs/TECHNICAL_README.md)  
+- Findings & Q&A → [docs/FINDINGS_AND_QA.md](docs/FINDINGS_AND_QA.md)  
 - Assignment Brief → [docs/ASSIGNMENT_BRIEF.md](docs/ASSIGNMENT_BRIEF.md)
 
 ---
@@ -122,4 +146,4 @@ README.md               ← Executive summary (this file)
 ## 👤 Author
 
 **Thomas Jortzig**  
-HealthTail-Project - September 2025
+HealthTail-Project – September 2025
