@@ -1,10 +1,7 @@
-# HealthTail – Diagnoses & Medication Audit
+# Diagnoses & Medication Audit Modeling (HealthTail Case Study)
 
-![Project Type](https://img.shields.io/badge/Project-BI%20Case%20Study-6C63FF)
-![Tech Stack](https://img.shields.io/badge/Tech-BigQuery%20%E2%80%A2%20SQL%20%E2%80%A2%20Looker%20Studio-4B8BBE)
-
-A business-focused BI project for **HealthTail**, a major veterinary hospital.  
-This case study automates medication auditing, analyzes disease trends, and delivers a modern analytics dashboard using **BigQuery**, **SQL**, and **Looker Studio**.
+**Analyzing diagnoses, medication usage, and disease trends for a veterinary hospital**  
+*A BigQuery-based BI workflow including data cleaning, medication auditing, consumer marts, and a Looker Studio dashboard.*
 
 ---
 
@@ -146,4 +143,4 @@ README.md               ← Executive summary (this file)
 ## 👤 Author
 
 **Thomas Jortzig**  
-HealthTail-Project (09/2025)
+Diagnoses & Medication Audit Modeling – HealthTail Case Study (09/2025)

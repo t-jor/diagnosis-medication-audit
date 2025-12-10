@@ -183,4 +183,4 @@ The dashboard uses several consumer-layer tables from BigQuery:
 ## 6. Author
 
 **Thomas Jortzig**  
-HealthTail-Project (09/2025)
+Diagnoses & Medication Audit Modeling – HealthTail Case Study (09/2025)

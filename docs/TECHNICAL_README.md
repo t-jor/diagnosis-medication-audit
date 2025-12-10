@@ -197,4 +197,4 @@ Tables will materialize automatically into their datasets.
 ## 7. Author
 
 **Thomas Jortzig**  
-HealthTail-Project (09/2025)
+Diagnoses & Medication Audit Modeling – HealthTail Case Study (09/2025)

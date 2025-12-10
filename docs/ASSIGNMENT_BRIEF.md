@@ -147,9 +147,9 @@ Dashboard pages must clearly address these questions.
 
 ---
 
-## 10. Author of Summary
+## 10. Author
 
 This assignment brief was compiled for documentation purposes by:  
 
 **Thomas Jortzig**  
-HealthTail-Project (09/2025)
+Diagnoses & Medication Audit Modeling – HealthTail Case Study (09/2025)
