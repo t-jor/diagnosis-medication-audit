@@ -1,4 +1,4 @@
-# Technical Documentation – HealthTail Diagnoses & Medication Audit
+# Technical Documentation – HealthTail Case Study
 
 This technical documentation explains the end-to-end BigQuery pipeline used to transform raw veterinary clinic data into analytics-ready tables consumed by the Looker Studio dashboard.
 

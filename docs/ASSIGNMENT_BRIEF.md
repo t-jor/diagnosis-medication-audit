@@ -1,4 +1,4 @@
-# Assignment Brief – HealthTail BI Project
+# Assignment Brief – HealthTail Case Study
 
 This document summarizes the original assignment for the HealthTail BI project, including objectives, data sources, required deliverables, and stakeholder questions.  
 It serves as a reference for understanding the project scope and constraints.

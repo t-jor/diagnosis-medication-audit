@@ -1,4 +1,4 @@
-# Findings: Medication Audit, and Stakeholder Business Q&A – HealthTail BI Project
+# Findings: Medication Audit, and Stakeholder Business Q&A – HealthTail Case Study
 
 This document summarizes the analytical findings derived from the BigQuery models and the Looker Studio dashboard.  
 It answers the four Medication Audit Questions (MAQs) as well as the eight Stakeholder Business Questions (SBQs) and outlines key insights.
